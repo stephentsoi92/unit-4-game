@@ -21,3 +21,15 @@ h1 {
     background-color: rgb(64, 194, 155);
     color: white;
 }
+#ruby, img {
+    max-width: 100%;
+}
+#diamont, img {
+    max-width: 100%;
+}
+#gold, img {
+    max-width: 100%;
+}
+#emerald, img {
+    max-width: 100%;
+}
