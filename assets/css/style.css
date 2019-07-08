@@ -1,3 +1,23 @@
 body {
-    background
+    background-image: url("https://onaircode.com/wp-content/uploads/2017/11/Tesselation-Transition.jpg");
+}
+h1 {
+    background-color: rgba(206, 50, 50, 0.733);
+    color: white;
+}
+.instructions {
+    background-color: rgb(211, 148, 53);
+    color: rgb(6, 97, 6);
+}
+.targetNumber {
+    background-color: rgb(6, 155, 6);
+    color: black;
+}
+.winsLosses {
+    background-color: rgb(77, 239, 245);
+    color: black;
+}
+.total {
+    background-color: rgb(64, 194, 155);
+    color: white;
 }
