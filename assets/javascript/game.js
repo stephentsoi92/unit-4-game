@@ -10,61 +10,103 @@ function number ()
     var randomNum = (Math.floor(Math.random()*121)+19);
     return randomNum
 }
-$("#randomNumber").html(Number(number())); //how to put a function in here
+var total;
+total = number()
 
-console.log(number()) // works
+//number()
+
+function crystalNum () 
+{
+    var crystalRandomNum = (Math.floor(Math.random()*12)+1);
+    return crystalRandomNum
+}
+var rubyNum;
+var diamontNum;
+var goldNum;
+var emeraldNum
+
+rubyNum = crystalNum()
+diamontNum = crystalNum()
+goldNum = crystalNum()
+emeraldNum = crystalNum()
+
+//crystalNum()
+
+console.log(total); // works
 
 // 2. objects variable and value, and variables that need to be stored
-var wins = 0
-var losses = 0
-var totalScore = 0
-function crystalNumbers () {
-    var ruby = {
-        value: 4
-    }
-    var diamont = {
-        value: 10
-    }
-    var gold = {
-        value: 15
-    }
-    var emerald = {
-        value: 1
-    }
+var wins = 0;
+var losses = 0;
+var points = 0;
+
+// 2.a. wins and losses on DOM
+$("#wins").html(Number(wins));
+$("#losses").html(Number(losses));
+
+var ruby = {
+    value: rubyNum
 }
+var diamont = {
+    value: diamontNum
+}
+var gold = {
+    value: goldNum
+}
+var emerald = {
+    value: emeraldNum
+}
+
+// assign  a value to the div
+$("#ruby").attr("value",ruby.value);
+$("#diamont").attr("value",diamont.value);
+$("#gold").attr("value",gold.value);
+$("#emerald").attr("value",emerald.value);
+
+//display random number and points on the DOM
+function startOver()
+{
+$("#randomNumber").html(Number(total)); // reset
+$("#playerScore").html(Number(points)); // reset
+points=0
+total
+//does not reset the total
+}
+startOver()
 
 // 3. make the objects function when they are clicked
-//var crystalOne = clickOne
-$("#ruby").on("click", function()
+$(".col-1").on("click", function(event)
 {
-    var rubySum = ruby.value;
-    var rubyTotal = rubySum +=;
-})
+    clickSum = event.target;
+    stoneNumber = clickSum.getAttribute('value'); // the image does not have a value
+    points += Number(stoneNumber);
 
-console.log(rubySum) //this will be added to total score
+    console.log(clickSum)
+    console.log(points)
+
+
+// console.log(rubySum) //this will be added to total score
 // 4. Total Value
-var totalSum = rubySum
-// 4. add the number to the total score
-$("#playerScore").html(Number(totalSum))
-{
-    if (totalSum === randomNum)
+// I dont know if this is necessary -> var totalSum = rubySum
+// 4. add the number to the total score and compare if it is equal, less, or greater than the randomNumber
+    $("#playerScore").html(Number(points))
     {
-        $("#winLoss").html("<span>You Won!!!</span>")
-        wins++
-        $("#wins").html(Number(wins))
-        number()
-        crystalNumbers()
+        if (points === total)
+        {
+            $("#winLoss").html("<span>You Won!!!</span>");
+            wins+= 1;
+            $("#wins").html(Number(wins));
+            startOver()
+        }
+        else if (points < total)
+        {
+            $("#playerScore").html(Number(points));
+        }
+        else
+        {
+            $("#winLoss").html("<span>You loss!!!</span>");
+            losses+= 1;
+            $("#losses").html(Number(losses));
+            startOver()
+        }
     }
-    else if (totalSum < randomNum)
-    {
-        $("#playerScore").html(Number(totalSum))
-    }
-    else
-    {
-        $("#winLoss").html("<span>You loss!!!</span>")
-        losses++
-        $("#wins").html(Number(losses))
-        number()
-        crystalNumbers()
-    }
-}
+})

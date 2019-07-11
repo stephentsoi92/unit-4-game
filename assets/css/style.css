@@ -1,7 +1,7 @@
 body {
     background-image: url("https://onaircode.com/wp-content/uploads/2017/11/Tesselation-Transition.jpg");
 }
-h1 {
+.title {
     background-color: rgba(206, 50, 50, 0.733);
     color: white;
 }
@@ -20,6 +20,9 @@ h1 {
 .total {
     background-color: rgb(64, 194, 155);
     color: white;
+}
+.margin-bottom {
+    margin-bottom: 20px;
 }
 #ruby, img {
     max-width: 100%;
